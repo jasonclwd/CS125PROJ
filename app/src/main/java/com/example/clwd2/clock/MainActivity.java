@@ -55,17 +55,17 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
-        final float alpha = 0.97f;
+        final float a = 0.97f;
         synchronized (this) {
             if(sensorEvent.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-                mGravity[0] = alpha*mGravity[0]+(1-alpha)*sensorEvent.values[0];
-                mGravity[1] = alpha*mGravity[1]+(1-alpha)*sensorEvent.values[1];
-                mGravity[2] = alpha*mGravity[2]+(1-alpha)*sensorEvent.values[2];
+                mGravity[0] = a*mGravity[0]+(1-a)*sensorEvent.values[0];
+                mGravity[1] = a*mGravity[1]+(1-a)*sensorEvent.values[1];
+                mGravity[2] = a*mGravity[2]+(1-a)*sensorEvent.values[2];
             }
             if(sensorEvent.sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD) {
-                mGeomagnetic[0] = alpha*mGeomagnetic[0]+(1-alpha)*sensorEvent.values[0];
-                mGeomagnetic[1] = alpha*mGeomagnetic[1]+(1-alpha)*sensorEvent.values[1];
-                mGeomagnetic[2] = alpha*mGeomagnetic[2]+(1-alpha)*sensorEvent.values[2];
+                mGeomagnetic[0] = a*mGeomagnetic[0]+(1-a)*sensorEvent.values[0];
+                mGeomagnetic[1] = a*mGeomagnetic[1]+(1-a)*sensorEvent.values[1];
+                mGeomagnetic[2] = a*mGeomagnetic[2]+(1-a)*sensorEvent.values[2];
             }
             float R[] = new float[9];
             float I[] = new float[9];
